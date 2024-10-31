@@ -4,12 +4,18 @@ public class Lists1Exercises {
      * to change. */
     public static IntList incrList(IntList L, int x) {
         /* Your code here. */
-        int len = L.size();
-        for(int i = 0; i < len; i++){
-            IntList n = new IntList(L.first + x, null);
-
+        if(L == null){
+            return null;
         }
-        return L;
+        IntList n = new IntList(L.first + x, null);
+        IntList current = L.rest;
+        IntList temp = n;
+        while(current != null){
+            temp.rest = new IntList(current.first + x, null);
+            current = current.rest;
+            temp = temp.rest;
+        }
+        return n;
     }
 
     /** Returns an IntList identical to L, but with
@@ -17,6 +23,11 @@ public class Lists1Exercises {
      * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
+        IntList current = L;
+        while(current != null){
+            current.first = current.first + x;
+            current = current.rest;
+        }
         return L;
     }
 
@@ -25,14 +36,15 @@ public class Lists1Exercises {
         L.rest = new IntList(7, null);
         L.rest.rest = new IntList(9, null);
 
-        System.out.println(L.size());
-        System.out.println(L.iterativeSize());
+//        System.out.println(L.size());
+//        System.out.println(L.iterativeSize());
 
         // Test your answers by uncommenting. Or copy and paste the
         // code for incrList and dincrList into IntList.java and
         // run it in the visualizer.
         // System.out.println(L.get(1));
-        // System.out.println(incrList(L, 3));
-        // System.out.println(dincrList(L, 3));
+         System.out.println(incrList(L, 3).rest.first);
+         System.out.println(dincrList(L, 3).rest.first);
     }
 }
+

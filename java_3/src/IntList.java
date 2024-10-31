@@ -8,8 +8,14 @@ public class IntList {
     }
 
     /** Return the size of the list using... recursion! */
-    public int size() {
-        return 0;
+    public int size(){
+        if(rest == null)
+        {
+            return 1;
+        }
+        else{
+            return 1 + this.rest.size();
+        }
     }
 
     /** Return the size of the list using no recursion! */
