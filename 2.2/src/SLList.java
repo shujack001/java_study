@@ -71,3 +71,4 @@ public class SLList {
         System.out.println(L.size());
     }
 }
+//你好
