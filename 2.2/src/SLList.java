@@ -25,6 +25,15 @@ public class SLList {
         size = 1;
     }
 
+    public  SLList(int[] arr){
+        sentinel = new IntNode(63, null);
+        size = 0;
+        int size_arr = arr.length;
+        for(int i = 0; i < size_arr; i++){
+            addLast(arr[i]);
+        }
+    }
+
     /** add an item to the front of the list*/
     public void addFirst(int x){
         sentinel.next = new IntNode(x, sentinel.next);
@@ -63,12 +72,22 @@ public class SLList {
         return size;
 
     }
+
+    public void deletFirst(){
+        if(sentinel.next != null) {
+            sentinel.next = sentinel.next.next;
+            size -= 1;
+        }
+    }
+
     public static void main(String[] argvs){
+        int[] arr = new int[]{1, 2, 3};
         SLList L = new SLList();
-//        L.addFirst(10);
-//        L.addFirst(5);
+        L.addFirst(10);
+        L.addFirst(5);
         L.addLast(20);
+        L.deletFirst();
         System.out.println(L.size());
+
     }
 }
-//你好
