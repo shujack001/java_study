@@ -27,6 +27,17 @@ public class AList<Glorp> {
         items = a;
     }
 
+    /** Inserts X into the front of the list. */
+    public void addfirst(Glorp x){
+        if(size == items.length){
+            resize(items.length * 2);
+        }
+        System.arraycopy(items, 0, items, 1, size);
+        items[0] = x;
+        size += 1;
+    }
+
+
     /** Inserts X into the back of the list. */
     public void addLast(Glorp x) {
         if(size == items.length){
