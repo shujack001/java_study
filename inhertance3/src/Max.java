@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 public class Max {
     public static Comparable max(Comparable[] items){
         int maxDex = 0;
@@ -17,5 +19,13 @@ public class Max {
 //        String[] a = {"nihao", "wobuhao"};
 //        String c = (String) max(a);
 //        System.out.println(c);
+        Comparator<Dog> nc = Dog.getNameComparator();
+        Dog d1 = new Dog("Elyse", 3);
+        Dog d2 = new Dog("shu", 4);
+        if(nc.compare(d1, d2) > 0){
+            d1.bark();
+        }else{
+            d2.bark();
+        }
     }
 }
